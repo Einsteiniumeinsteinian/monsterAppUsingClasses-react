@@ -1,4 +1,4 @@
-import { Component } from 'react'
+import React, { Component } from "react";
 import Cardlist from './components/card-list/card-list.component'
 import SearchBar from './components/search-bar/search.component'
 // import logo from './logo.svg';
@@ -29,9 +29,7 @@ class App extends Component {
   }
 
   onsearch = (event) =>  {
-    console.log('hit', this.state.allMonsters)
     const {allMonsters} = this.state
-    console.log(allMonsters)
       const searchString = event.target.value.toLowerCase()
       const filteredMonsters = allMonsters.filter(
         (monster) => monster.name.toLowerCase().indexOf(searchString) !== -1,
@@ -45,11 +43,9 @@ class App extends Component {
     const {currentMonsters, allMonsters} = this.state
     const {onsearch} = this
     return (
-      <div className="App">
-        <header className="App-header">
+      <div className="App App-header">
           <SearchBar monsters={allMonsters} onChangeHandler={onsearch} placeholder='search monster' className='monster-search-bar' />
           <Cardlist monsters={currentMonsters} />
-        </header>
       </div>
     )
   }
